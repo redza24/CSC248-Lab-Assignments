@@ -44,9 +44,9 @@ public class App {
         int option = 0;
         while (option != 4) {
             System.out.println("\n\t Menu Selection");
-            System.out.println("1. Sorting using Bubble Sort");
-            System.out.println("2. Sorting using Insertion Sort");
-            System.out.println("3. Searching using Binary Search");
+            System.out.println("1. Sort Tax Price");
+            System.out.println("2. Sort Owner ID");
+            System.out.println("3. Search Owner ID");
             System.out.println("4. Exit");
             System.out.print("\nYour Option: ");
             option = in.nextInt();
@@ -54,16 +54,32 @@ public class App {
 
             switch (option) {
                 case 1:
-                    System.out.println("\tSorting using Bubble Sort\n");
+                    System.out.println("\tSorting tax price\n");
                     bubbleSort(lands);
+                    System.out.println("\tSorted using Bubble Sort");
+                    System.out.println("----------------------------------");
                     break;
                 case 2:
-                    System.out.println("\tSorting using Insertion Sort\n");
+                    System.out.println("\tSorting owner ID\n");
                     insertionSort(lands);
+
+                    for (Land land : lands) {
+                        System.out.println(land.toString());
+                        System.out.printf("Tax : RM%,.2f%n", land.calcTax());
+                        System.out.println();
+                    }
+
+                    System.out.println("\tSorted using Insertion Sort");
+                    System.out.println("----------------------------------");
                     break;
                 case 3:
-                    System.out.println("\tSearching using Binary Search\n");
-                    // Implement binary search logic here
+                    System.out.println("\tSearching owner ID\n");
+                    System.out.print("Enter id: ");
+                    String id = in.next();
+                    System.out.println();
+                    binarySearch(lands, id);
+                    System.out.println("\tSearched using Binary Search");
+                    System.out.println("----------------------------------");
                     break;
                 case 4:
                     System.out.println("\n\tThank you for using this program.\n");
@@ -93,11 +109,9 @@ public class App {
             System.out.printf("Tax : RM%,.2f%n", land.calcTax());
             System.out.println();
         }
-        System.out.println("\tSorted based on tax price");
-        System.out.println("----------------------------------");
     } // end bubbleSort
 
-    public static void insertionSort(Land[] lands) {
+    public static Land[] insertionSort(Land[] lands) {
         for (int i = 1; i < lands.length; i++) {
             Land temp = lands[i];
             int j = i - 1;
@@ -107,17 +121,34 @@ public class App {
             }
             lands[j + 1] = temp;
         }
+        return lands;
 
-        for (Land land : lands) {
-            System.out.println(land.toString());
-            System.out.printf("Tax : RM%,.2f%n", land.calcTax());
-            System.out.println();
-        }
-
-        System.out.println("\tSorted based on owner id");
-        System.out.println("----------------------------------");
     } // end insertionSort
 
-    
+    public static void binarySearch(Land[] lands, String id) {
+        insertionSort(lands);
+
+        int low = 0;
+        int high = lands.length - 1;
+        int mid = (low + high) / 2;
+
+        while (low <= high) {
+            if (lands[mid].getId().compareTo(id) < 0) {
+                low = mid + 1;
+            } else if (lands[mid].getId().compareTo(id) == 0) {
+                System.out.println(lands[mid].toString());
+                System.out.printf("Tax : RM%,.2f%n", lands[mid].calcTax());
+                System.out.println();
+                return;
+            } else {
+                high = mid - 1;
+            }
+            mid = (low + high) / 2;
+        }
+
+        System.out.println();
+        System.out.println("ID not found.\n");
+
+    } // end binarySearch
 
 } // end class

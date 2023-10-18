@@ -51,7 +51,7 @@ public class Land {
     }
 
     public String toString(){
-        return ("ID: " + id + "\nName: " + ownerName + "\nType: " + type + "\nArea: " + area);
+        return ("ID  : " + id + "\nName: " + ownerName + "\nType: " + type + "\nArea: " + area);
     }
 
     public double calcTax(){
