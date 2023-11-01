@@ -38,7 +38,7 @@ public class Friend {
     }
 
     public String toString() {
-        return "ID: " + this.idno + "\nName: " + this.name + "\nHP: " + this.hpno + "\nEmail: " + this.email;
+        return "ID   : " + this.idno + "\nName : " + this.name + "\nHP   : " + this.hpno + "\nEmail: " + this.email;
     }
     
 }
