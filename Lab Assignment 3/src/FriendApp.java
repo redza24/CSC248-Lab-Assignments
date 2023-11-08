@@ -33,7 +33,7 @@ public class FriendApp {
                             break;
                         }
                     }
-                    
+
                     try {
                         sList.add(ind, f);
                         System.out.println("\nFriend added.");
@@ -116,7 +116,7 @@ public class FriendApp {
 
                                 friend.setHP(hp1);
                                 friend.setEmail(email1);
-                                
+
                                 System.out.println("\nFriend updated.");
                                 break;
                             }
