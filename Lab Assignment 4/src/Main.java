@@ -19,7 +19,6 @@ public class Main {
                 System.out.print("Enter serial number: ");
                 int serialNo = in1.nextInt();
 
-                // check if theres any computer with the same serial number
                 ListNode curr = list.getFirstNode();
                 boolean exist = false;
                 while (curr != null) {
