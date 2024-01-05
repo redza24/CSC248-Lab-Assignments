@@ -4,15 +4,15 @@ public class Queue extends List{
     }
 
     public int size() {
-        return size();
+        return super.size();
     }
 
     public boolean isEmpty() {
-        return isEmpty();
+        return super.isEmpty();
     }
 
     public void enqueue(Object obj) {
-        insertAtBack(obj);
+        super.insertAtBack(obj);
     }
 
     public Object dequeue() {
@@ -28,10 +28,10 @@ public class Queue extends List{
     }
 
     public Patient removedPatient(String icNum) {
-        return removedPatient(icNum);
+        return super.removedPatient(icNum);
     }
 
     public Object searchPatient(String icNum) {
-        return searchPatient(icNum);
+        return super.searchPatient(icNum);
     }
 }

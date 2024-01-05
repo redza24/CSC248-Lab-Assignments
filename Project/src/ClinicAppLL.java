@@ -120,7 +120,7 @@ public class ClinicAppLL {
             if (ICnum.equals(obj.getICnum())) {
                 // ask user new data
                 System.out.println("Set the new phone number: ");
-                String phoneNum = scan.nextLine()
+                String phoneNum = scan.nextLine();
                 System.out.println("Set the new email: ");
                 String email = scan.nextLine();
                 System.out.println("Set the new address: ");
