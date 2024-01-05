@@ -1,33 +1,22 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Q2 {
     public static void main(String[] args) {
-        Scanner strInput = new Scanner(System.in);
-        Scanner intInput = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
+        Scanner in1 = new Scanner(System.in);
 
-        // i. Declare a QUEUE object named as qCustomer, to store customer information
-        QUEUE qCustomer = new QUEUE();
+        Queue qCustomer = new Queue();
+        Queue qQualify = new Queue();
 
-        // ii. Declare a QUEUE object named as qQualify, to store customer information
-        // data that qualified to apply a loan
-        QUEUE qQualify = new QUEUE();
-
-        // iii. Assume a queue for qCustomer has been inserted with some values (please
-        // insert some data by the user). Determine either any customers is qualify or
-        // disqualify to apply for a loan. If there are any customers qualified to apply
-        // for a loan, store the information into qQualify.
         for (int i = 0; i < 10; i++) {
             System.out.print("Enter customer name: ");
-            String name = strInput.nextLine();
-
+            String name = in.nextLine();
             System.out.print("Enter account number: ");
-            int accountNo = intInput.nextInt();
-
+            int accountNo = in1.nextInt();
             System.out.print("Enter saving (RM): ");
-            double saving = intInput.nextDouble();
-
+            double saving = in1.nextDouble();
             System.out.print("Enter total transaction (RM): ");
-            double totalTransaction = intInput.nextDouble();
+            double totalTransaction = in1.nextDouble();
 
             Customer customer = new Customer(name, accountNo, saving, totalTransaction);
 
@@ -37,16 +26,13 @@ public class Q2 {
             }
         }
 
-        // iv. Print all customer information from qQualify list
         while (!qQualify.isEmpty()) {
             System.out.println(qQualify.dequeue() + "\n");
         }
 
-        intInput.close();
-        strInput.close();
-
+        in1.close();
+        in.close();
     }
-
 }
 
 class Customer {
@@ -123,8 +109,8 @@ class ListNode {
     }
 }
 
-class QUEUE extends ListNode {
-    public QUEUE() {
+class Queue extends ListNode {
+    public Queue() {
         super();
     }
 
